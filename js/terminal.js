@@ -8,11 +8,17 @@
   // DOM References
   const terminalBody = document.getElementById("terminal-body");
   const commandInput = document.getElementById("command-input");
+  const inputLine = document.querySelector(".input-line");
   const mobileChips = document.getElementById("mobile-suggestions");
 
   // State
   let commandHistory = [];
   let historyIndex = -1;
+
+  // Helper: insert element before the input line so input always stays at bottom
+  function appendToTerminal(element) {
+    terminalBody.insertBefore(element, inputLine);
+  }
 
   // ---- Initialization ----
   function init() {
@@ -36,29 +42,29 @@
     const banner = document.createElement("div");
     banner.className = "ascii-banner";
     banner.textContent = RESUME_DATA.ascii_banner;
-    terminalBody.appendChild(banner);
+    appendToTerminal(banner);
 
     // Fallback for small screens
     const fallback = document.createElement("div");
     fallback.className = "ascii-fallback";
     fallback.textContent = RESUME_DATA.name;
-    terminalBody.appendChild(fallback);
+    appendToTerminal(fallback);
 
     const subtitle = document.createElement("div");
     subtitle.className = "subtitle";
     subtitle.textContent = `  ${RESUME_DATA.title} | ${RESUME_DATA.about.location}`;
-    terminalBody.appendChild(subtitle);
+    appendToTerminal(subtitle);
   }
 
   function renderWelcome() {
     const msg = document.createElement("div");
     msg.className = "welcome-msg";
     msg.innerHTML = `Welcome to my interactive portfolio. Type <span class="highlight-cmd">help</span> to see available commands.\n`;
-    terminalBody.appendChild(msg);
+    appendToTerminal(msg);
 
     const hr = document.createElement("hr");
     hr.className = "terminal-hr";
-    terminalBody.appendChild(hr);
+    appendToTerminal(hr);
   }
 
   // ---- Input Handling ----
@@ -235,7 +241,7 @@
     const line = document.createElement("div");
     line.className = "command-line";
     line.innerHTML = `${createPromptHTML()} <span class="command-text">${escapeHtml(text)}</span>`;
-    terminalBody.appendChild(line);
+    appendToTerminal(line);
     return line;
   }
 
@@ -243,7 +249,7 @@
     const block = document.createElement("div");
     block.className = "output-block";
     block.innerHTML = html;
-    terminalBody.appendChild(block);
+    appendToTerminal(block);
   }
 
   function clearTerminal() {
