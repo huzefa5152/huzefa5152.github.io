@@ -24,6 +24,12 @@
 
     // Click anywhere to focus input
     terminalBody.addEventListener("click", focusInput);
+
+    // Clear button in title bar
+    document.getElementById("clear-btn").addEventListener("click", () => {
+      clearTerminal();
+      focusInput();
+    });
   }
 
   function renderBanner() {
@@ -230,6 +236,8 @@
     block.className = "output-block";
     block.innerHTML = html;
     terminalBody.appendChild(block);
+    // Scroll so the top of this output is visible
+    block.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
   function clearTerminal() {
@@ -245,7 +253,7 @@
 
   // ---- Mobile Chips ----
   function setupMobileChips() {
-    const chipCommands = ["help", "about", "skills", "experience", "projects", "contact", "neofetch", "resume", "theme dracula", "theme retro", "theme matrix", "theme nord"];
+    const chipCommands = ["help", "about", "skills", "experience", "projects", "contact", "neofetch", "resume", "clear", "theme dracula", "theme retro", "theme matrix", "theme nord"];
     chipCommands.forEach((cmd) => {
       const btn = document.createElement("button");
       btn.textContent = cmd;
