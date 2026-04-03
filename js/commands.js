@@ -163,12 +163,14 @@ function applyTheme(name) {
   try { localStorage.setItem("terminal-theme", name); } catch (e) {}
 }
 
-// Restore saved theme on load
+// Restore saved theme on load (default: green)
 document.addEventListener("DOMContentLoaded", function () {
   try {
     const saved = localStorage.getItem("terminal-theme");
-    if (saved && THEMES[saved]) applyTheme(saved);
-  } catch (e) {}
+    applyTheme(saved && THEMES[saved] ? saved : "green");
+  } catch (e) {
+    applyTheme("green");
+  }
 });
 
 // ============================================================
