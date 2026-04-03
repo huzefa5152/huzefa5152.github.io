@@ -83,6 +83,12 @@ const RESUME_DATA = {
 
   projects: [
     {
+      name: "MyApp.Api — Delivery Challan System",
+      tech: "ASP.NET Core 9, React 19, EF Core, SQL Server, Bootstrap 5",
+      description: "Full-stack delivery challan management system with company/client CRUD, auto-numbered challans, dynamic line items, and autocomplete lookups",
+      link: "github.com/huzefa5152/MyApp.Api"
+    },
+    {
       name: "dotnet-microservices-starter",
       tech: "ASP.NET Core, Docker, Ocelot, SQL Server, JWT",
       description: "Production-ready microservices architecture with API Gateway, service discovery, and containerized deployment",
