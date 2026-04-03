@@ -123,8 +123,13 @@
     // Process
     processCommand(input);
 
-    // Scroll the echoed command into view so both command + output are visible
-    promptLine.scrollIntoView({ behavior: "smooth", block: "start" });
+    // Scroll so the echoed command is at the top of the terminal viewport
+    setTimeout(() => {
+      terminalBody.scrollTo({
+        top: promptLine.offsetTop - terminalBody.offsetTop,
+        behavior: "smooth"
+      });
+    }, 50);
   }
 
   function navigateHistory(direction) {
