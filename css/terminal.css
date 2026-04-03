@@ -106,6 +106,7 @@ html, body {
 .terminal-body {
   background: var(--bg-terminal);
   flex: 1;
+  min-height: 0;
   overflow-y: auto;
   overflow-x: hidden;
   padding: 16px 20px;
@@ -367,6 +368,7 @@ html, body {
   .terminal-wrapper {
     margin: 0;
     height: 100vh;
+    height: 100dvh;
     border-radius: 0;
   }
 
@@ -386,6 +388,12 @@ html, body {
 
   .mobile-suggestions {
     display: flex;
+    flex-wrap: wrap;
+    overflow-y: auto;
+    max-height: 120px;
+    padding: 8px 12px;
+    gap: 6px;
+    -webkit-overflow-scrolling: touch;
   }
 }
 
@@ -414,6 +422,34 @@ html, body {
   .title-bar .dot {
     width: 10px;
     height: 10px;
+  }
+
+  /* Hide user@host on very small screens, show only ~$ */
+  .prompt .prompt-user,
+  .prompt .at,
+  .prompt .host,
+  .prompt .colon {
+    display: none;
+  }
+
+  .command-line {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 380px) {
+  .terminal-body {
+    padding: 10px 14px;
+    font-size: 11px;
+  }
+
+  .output-block {
+    padding-left: 8px;
+  }
+
+  .mobile-suggestions button {
+    padding: 4px 10px;
+    font-size: 11px;
   }
 }
 
