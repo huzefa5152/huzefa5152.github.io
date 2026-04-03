@@ -371,8 +371,17 @@ html, body {
   }
 
   .terminal-body {
-    padding: 12px 14px;
+    padding: 14px 18px;
     font-size: 13px;
+  }
+
+  .output-block {
+    padding-left: 6px;
+    padding-right: 2px;
+  }
+
+  .command-line {
+    padding-left: 2px;
   }
 
   .mobile-suggestions {
