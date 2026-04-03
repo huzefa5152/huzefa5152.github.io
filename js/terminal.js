@@ -249,10 +249,19 @@
     const block = document.createElement("div");
     block.className = "output-block";
     appendToTerminal(block);
-    typeOutHTML(block, html);
+
+    // Hide input line during typing
+    inputLine.style.display = "none";
+
+    typeOutHTML(block, html, function () {
+      // Show input line after typing completes
+      inputLine.style.display = "";
+      focusInput();
+      scrollToBottom();
+    });
   }
 
-  function typeOutHTML(element, html) {
+  function typeOutHTML(element, html, onComplete) {
     // Parse the HTML into a temporary element to get the text nodes and tags
     const temp = document.createElement("div");
     temp.innerHTML = html;
@@ -264,6 +273,7 @@
     function typeNext() {
       if (i >= fullHTML.length) {
         element.innerHTML = fullHTML; // Ensure final render is exact
+        if (onComplete) onComplete();
         return;
       }
 
@@ -281,7 +291,7 @@
       } else {
         i++;
         element.innerHTML = fullHTML.substring(0, i);
-        // Scroll to keep prompt visible
+        // Scroll to keep content visible
         terminalBody.scrollTo({
           top: terminalBody.scrollHeight,
           behavior: "auto"
