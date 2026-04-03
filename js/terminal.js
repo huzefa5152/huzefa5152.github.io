@@ -248,8 +248,49 @@
   function renderOutput(html) {
     const block = document.createElement("div");
     block.className = "output-block";
-    block.innerHTML = html;
     appendToTerminal(block);
+    typeOutHTML(block, html);
+  }
+
+  function typeOutHTML(element, html) {
+    // Parse the HTML into a temporary element to get the text nodes and tags
+    const temp = document.createElement("div");
+    temp.innerHTML = html;
+    const fullHTML = temp.innerHTML;
+    let i = 0;
+    let inTag = false;
+    let buffer = "";
+
+    function typeNext() {
+      if (i >= fullHTML.length) {
+        element.innerHTML = fullHTML; // Ensure final render is exact
+        return;
+      }
+
+      const ch = fullHTML[i];
+      if (ch === "<") inTag = true;
+      if (inTag) {
+        buffer += ch;
+        if (ch === ">") {
+          inTag = false;
+          element.innerHTML = fullHTML.substring(0, i + 1);
+          buffer = "";
+        }
+        i++;
+        typeNext(); // Skip through tags instantly
+      } else {
+        i++;
+        element.innerHTML = fullHTML.substring(0, i);
+        // Scroll to keep prompt visible
+        terminalBody.scrollTo({
+          top: terminalBody.scrollHeight,
+          behavior: "auto"
+        });
+        setTimeout(typeNext, 8);
+      }
+    }
+
+    typeNext();
   }
 
   function clearTerminal() {

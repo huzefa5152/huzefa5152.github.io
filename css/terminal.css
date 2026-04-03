@@ -212,10 +212,10 @@ html, body {
 .prompt .host { color: var(--highlight); }
 .prompt .colon { color: var(--muted); }
 .prompt .path { color: var(--link); }
-.prompt .dollar { color: var(--text); margin-left: 4px; }
+.prompt .dollar { color: var(--text); margin-left: 4px; margin-right: 6px; }
 
 .command-text {
-  color: #e0e0e0;
+  color: var(--text);
   font-weight: 600;
 }
 
@@ -229,16 +229,17 @@ html, body {
   background: transparent;
   border: none;
   outline: none;
-  color: #e0e0e0;
+  color: var(--text);
   font-family: inherit;
   font-size: inherit;
   font-weight: 600;
   flex: 1;
   caret-color: var(--text);
+  transition: color 0.5s ease;
 }
 
 #command-input::placeholder {
-  color: #333;
+  color: var(--muted);
 }
 
 /* Blinking Cursor */
