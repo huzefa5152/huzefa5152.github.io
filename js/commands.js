@@ -265,21 +265,43 @@ const COMMANDS = {
   },
 
   theme: {
-    description: "Change theme (green/amber/white/cyan)",
+    description: "Change theme (green/amber/cyan/dracula/nord/retro/matrix/solarized)",
     execute: (args) => {
       const themes = {
-        green:  { text: "#00ff41", glow: "rgba(0,255,65,0.4)" },
-        amber:  { text: "#ffb000", glow: "rgba(255,176,0,0.3)" },
-        white:  { text: "#e0e0e0", glow: "rgba(224,224,224,0.2)" },
-        cyan:   { text: "#00ffff", glow: "rgba(0,255,255,0.3)" }
+        green:     { text: "#00ff41", glow: "rgba(0,255,65,0.4)", bg: "#0a0a0a", bgTerminal: "#0d0d0d", prompt: "#ffb000", promptUser: "#bd93f9", highlight: "#50fa7b", link: "#00bfff", border: "#333333", titlebar: "#1e1e1e" },
+        amber:     { text: "#ffb000", glow: "rgba(255,176,0,0.3)", bg: "#0a0a0a", bgTerminal: "#0d0d0d", prompt: "#ff8c00", promptUser: "#ffd700", highlight: "#ffe066", link: "#ffcc00", border: "#3a3000", titlebar: "#1e1e1e" },
+        cyan:      { text: "#00ffff", glow: "rgba(0,255,255,0.3)", bg: "#0a0a0a", bgTerminal: "#0d0d0d", prompt: "#ff79c6", promptUser: "#8be9fd", highlight: "#50fa7b", link: "#bd93f9", border: "#333333", titlebar: "#1e1e1e" },
+        dracula:   { text: "#f8f8f2", glow: "rgba(248,248,242,0.15)", bg: "#282a36", bgTerminal: "#1e1f29", prompt: "#ff79c6", promptUser: "#bd93f9", highlight: "#50fa7b", link: "#8be9fd", border: "#44475a", titlebar: "#21222c" },
+        nord:      { text: "#d8dee9", glow: "rgba(216,222,233,0.1)", bg: "#2e3440", bgTerminal: "#272c36", prompt: "#88c0d0", promptUser: "#81a1c1", highlight: "#a3be8c", link: "#5e81ac", border: "#3b4252", titlebar: "#242933" },
+        retro:     { text: "#ff6ac1", glow: "rgba(255,106,193,0.4)", bg: "#0a0012", bgTerminal: "#0d0018", prompt: "#ffe66d", promptUser: "#ff6ac1", highlight: "#7efdd0", link: "#c991e1", border: "#2a1440", titlebar: "#140020" },
+        matrix:    { text: "#00ff41", glow: "rgba(0,255,65,0.6)", bg: "#000000", bgTerminal: "#000a00", prompt: "#33ff33", promptUser: "#00cc00", highlight: "#66ff66", link: "#00ff41", border: "#003300", titlebar: "#001100" },
+        solarized: { text: "#839496", glow: "rgba(131,148,150,0.1)", bg: "#002b36", bgTerminal: "#002028", prompt: "#b58900", promptUser: "#268bd2", highlight: "#859900", link: "#2aa198", border: "#073642", titlebar: "#001f28" }
       };
       const name = args && args[0] ? args[0].toLowerCase() : "";
       if (!themes[name]) {
-        return `<span class="error">Usage: theme &lt;${Object.keys(themes).join("|")}&gt;</span>`;
+        const list = Object.keys(themes).map(t => `<span class="cmd-name">${t}</span>`).join("  ");
+        return `<span class="section-header">Available Themes:</span>\n\n  ${list}\n\n<span class="muted">Usage: theme &lt;name&gt;</span>`;
       }
-      document.documentElement.style.setProperty("--text", themes[name].text);
-      document.documentElement.style.setProperty("--glow", themes[name].glow);
-      return `Theme changed to <span class="highlight">${name}</span>`;
+      const t = themes[name];
+      const root = document.documentElement;
+      root.style.setProperty("--text", t.text);
+      root.style.setProperty("--glow", t.glow);
+      root.style.setProperty("--bg", t.bg);
+      root.style.setProperty("--bg-terminal", t.bgTerminal);
+      root.style.setProperty("--prompt", t.prompt);
+      root.style.setProperty("--prompt-user", t.promptUser);
+      root.style.setProperty("--highlight", t.highlight);
+      root.style.setProperty("--link", t.link);
+      root.style.setProperty("--border", t.border);
+      root.style.setProperty("--titlebar", t.titlebar);
+
+      // Update chip button colors
+      document.querySelectorAll('.mobile-suggestions button').forEach(btn => {
+        btn.style.borderColor = t.border;
+        btn.style.color = t.text;
+      });
+
+      return `<span class="highlight">✓</span> Theme changed to <span class="highlight">${name}</span>`;
     }
   },
 

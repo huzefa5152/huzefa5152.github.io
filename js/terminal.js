@@ -245,7 +245,7 @@
 
   // ---- Mobile Chips ----
   function setupMobileChips() {
-    const chipCommands = ["help", "about", "skills", "experience", "projects", "contact", "neofetch", "theme green"];
+    const chipCommands = ["help", "about", "skills", "experience", "projects", "contact", "neofetch", "resume", "theme dracula", "theme retro", "theme matrix", "theme nord"];
     chipCommands.forEach((cmd) => {
       const btn = document.createElement("button");
       btn.textContent = cmd;
