@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Huzefa Hussain | Software Developer</title>
+  <meta name="description" content="Interactive terminal-style portfolio of Huzefa Hussain — Software Developer specializing in ASP.NET MVC, C#, JavaScript, and enterprise web applications.">
+  <meta name="author" content="Huzefa Hussain">
+  <meta name="keywords" content="software developer, ASP.NET, C#, JavaScript, portfolio, terminal">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Huzefa Hussain | Software Developer">
+  <meta property="og:description" content="Interactive terminal portfolio — type 'help' to explore.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://huzefa5152.github.io">
+
+  <!-- Favicon (terminal icon) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
+
+  <link rel="stylesheet" href="css/terminal.css">
+</head>
+<body>
+
+  <div class="terminal-wrapper">
+    <!-- Title Bar -->
+    <div class="title-bar">
+      <span class="dot red"></span>
+      <span class="dot yellow"></span>
+      <span class="dot green"></span>
+      <span class="title-text">huzefa@portfolio: ~</span>
+    </div>
+
+    <!-- Terminal Output Area -->
+    <div class="terminal-body" id="terminal-body">
+
+      <!-- Input Line (always at bottom of flow) -->
+      <div class="input-line">
+        <span class="prompt">
+          <span class="prompt-user">huzefa</span><span class="at">@</span><span class="host">portfolio</span><span class="colon">:</span><span class="path">~</span><span class="dollar">$</span>
+        </span>
+        <input type="text" id="command-input" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" autofocus placeholder="type 'help' to start...">
+      </div>
+    </div>
+
+    <!-- Mobile Command Chips -->
+    <div class="mobile-suggestions" id="mobile-suggestions"></div>
+  </div>
+
+  <script src="js/commands.js"></script>
+  <script src="js/terminal.js"></script>
+
+</body>
+</html>

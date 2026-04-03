@@ -1,0 +1,184 @@
+/* ATS-Friendly Resume Stylesheet */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Calibri, 'Segoe UI', Arial, sans-serif;
+  font-size: 10pt;
+  line-height: 1.35;
+  color: #1a1a1a;
+  max-width: 8.5in;
+  margin: 0 auto;
+  padding: 0.5in;
+  background: #fff;
+}
+
+a {
+  color: #1a1a2e;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 8pt;
+}
+
+.header h1 {
+  font-size: 22pt;
+  font-weight: 700;
+  color: #1a1a2e;
+  letter-spacing: 1px;
+  margin-bottom: 4pt;
+}
+
+.header .contact-line {
+  font-size: 9.5pt;
+  color: #444;
+}
+
+.header .contact-line a {
+  color: #444;
+}
+
+.header .contact-line .sep {
+  margin: 0 4px;
+  color: #999;
+}
+
+/* Section Headings */
+.section-title {
+  font-size: 11pt;
+  font-weight: 700;
+  color: #1a1a2e;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  border-bottom: 1.5px solid #1a1a2e;
+  padding-bottom: 2pt;
+  margin-top: 10pt;
+  margin-bottom: 6pt;
+}
+
+/* Professional Summary */
+.summary {
+  font-size: 10pt;
+  color: #333;
+  margin-bottom: 2pt;
+}
+
+/* Skills */
+.skills-grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2pt 10pt;
+  font-size: 9.5pt;
+}
+
+.skills-grid .skill-category {
+  font-weight: 600;
+  color: #1a1a2e;
+  white-space: nowrap;
+}
+
+.skills-grid .skill-list {
+  color: #333;
+}
+
+/* Experience */
+.experience-item {
+  margin-bottom: 8pt;
+  break-inside: avoid;
+}
+
+.experience-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 1pt;
+}
+
+.experience-header .role {
+  font-size: 10.5pt;
+  font-weight: 700;
+  color: #1a1a2e;
+}
+
+.experience-header .dates {
+  font-size: 9.5pt;
+  color: #555;
+  white-space: nowrap;
+}
+
+.company {
+  font-size: 9.5pt;
+  color: #555;
+  font-style: italic;
+  margin-bottom: 3pt;
+}
+
+.experience-item ul {
+  padding-left: 16pt;
+  margin: 0;
+}
+
+.experience-item li {
+  font-size: 9.5pt;
+  color: #333;
+  margin-bottom: 1.5pt;
+}
+
+/* Education */
+.education-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.education-item .degree {
+  font-weight: 600;
+  color: #1a1a2e;
+}
+
+.education-item .school {
+  font-size: 9.5pt;
+  color: #555;
+}
+
+.education-item .dates {
+  font-size: 9.5pt;
+  color: #555;
+  white-space: nowrap;
+}
+
+/* Print Styles */
+@media print {
+  body {
+    padding: 0;
+    font-size: 10pt;
+  }
+
+  @page {
+    margin: 0.5in;
+    size: letter;
+  }
+
+  a {
+    color: #1a1a1a;
+  }
+
+  .section-title {
+    border-bottom-color: #000;
+    color: #000;
+  }
+
+  .header h1 {
+    color: #000;
+  }
+}
