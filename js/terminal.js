@@ -110,7 +110,7 @@
     historyIndex = -1;
 
     // Echo the command
-    appendPromptLine(input);
+    const promptLine = appendPromptLine(input);
 
     if (input === "") {
       scrollToBottom();
@@ -122,7 +122,9 @@
 
     // Process
     processCommand(input);
-    scrollToBottom();
+
+    // Scroll the echoed command into view so both command + output are visible
+    promptLine.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
   function navigateHistory(direction) {
@@ -229,6 +231,7 @@
     line.className = "command-line";
     line.innerHTML = `${createPromptHTML()} <span class="command-text">${escapeHtml(text)}</span>`;
     terminalBody.appendChild(line);
+    return line;
   }
 
   function renderOutput(html) {
@@ -236,8 +239,6 @@
     block.className = "output-block";
     block.innerHTML = html;
     terminalBody.appendChild(block);
-    // Scroll so the top of this output is visible
-    block.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
   function clearTerminal() {
