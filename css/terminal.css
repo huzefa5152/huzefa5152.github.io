@@ -107,6 +107,7 @@ html, body {
   background: var(--bg-terminal);
   flex: 1;
   overflow-y: auto;
+  overflow-x: hidden;
   padding: 16px 20px;
   cursor: text;
   transition: background 0.5s ease;
@@ -165,6 +166,7 @@ html, body {
 .output-block {
   white-space: pre-wrap;
   word-wrap: break-word;
+  overflow-wrap: anywhere;
   margin-bottom: 12px;
   line-height: 1.5;
   animation: fadeSlideIn 0.3s ease-out;

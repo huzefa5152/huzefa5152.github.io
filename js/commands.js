@@ -160,7 +160,7 @@ const COMMANDS = {
     execute: () => {
       let output = `<span class="section-header">Technical Skills</span>\n`;
       for (const [category, skills] of Object.entries(RESUME_DATA.skills)) {
-        output += `\n  <span class="label">${category}:</span>\n    ${skills.join(", ")}`;
+        output += `\n <span class="label">${category}:</span>\n  ${skills.join(", ")}`;
       }
       return output;
     }
@@ -171,10 +171,10 @@ const COMMANDS = {
     execute: () => {
       let output = `<span class="section-header">Professional Experience</span>\n`;
       for (const job of RESUME_DATA.experience) {
-        output += `\n  <span class="highlight">${job.role}</span> @ <span class="company-name">${job.company}</span>`;
-        output += `\n  <span class="muted">${job.period}</span>\n`;
+        output += `\n <span class="highlight">${job.role}</span> @ <span class="company-name">${job.company}</span>`;
+        output += `\n <span class="muted">${job.period}</span>\n`;
         for (const bullet of job.bullets) {
-          output += `    • ${bullet}\n`;
+          output += `  • ${bullet}\n`;
         }
       }
       return output;
