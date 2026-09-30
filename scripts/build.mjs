@@ -1,5 +1,8 @@
 import { readFile, writeFile, mkdir, cp } from "node:fs/promises";
 const projects = JSON.parse(await readFile("content/projects.json", "utf8"));
+await cp("node_modules/lenis/dist/lenis.mjs", "assets/lenis.js");
+await cp("node_modules/lenis/dist/lenis.css", "assets/lenis.css");
+await cp("node_modules/lenis/LICENSE", "assets/lenis-LICENSE.txt");
 const esc = (s) =>
   String(s)
     .replaceAll("&", "&amp;")

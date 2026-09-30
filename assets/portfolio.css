@@ -1442,27 +1442,7 @@ details[open] summary span {
     display: none;
   }
 }
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-  *,
-  *::before,
-  *::after {
-    animation: none !important;
-    transition: none !important;
-  }
-  .motion-ready .reveal.pending {
-    opacity: 1;
-    transform: none;
-  }
-  .portrait-frame {
-    transform: none !important;
-  }
-  .contact-arrow:hover {
-    transform: none;
-  }
-}
+
 .real-preview {
   background: #dfe5d2;
   padding: 30px;

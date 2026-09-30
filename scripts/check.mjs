@@ -18,15 +18,16 @@ for (const href of [...html.matchAll(/(?:src|href)="([^"#]+)"/g)].map(
   (m) => m[1],
 )) {
   if (/^(https?:|mailto:|data:)/.test(href)) continue;
+  const path = href.split("?")[0];
   await access(
-    `dist/${href.replace(/^\//, "")}${href.endsWith("/") ? "index.html" : ""}`,
+    `dist/${path.replace(/^\//, "")}${path.endsWith("/") ? "index.html" : ""}`,
   );
 }
 const legacy = await readFile("dist/developer/index.html", "utf8");
 assert(legacy.includes('id="command-input"'));
 assert(legacy.includes('href="/"'));
 assert(legacy.includes('src="/js/terminal.js"'));
-const source = await readFile("assets/portfolio.js", "utf8");
+const source = await readFile("assets/motion.js", "utf8");
 assert(source.includes("prefers-reduced-motion"));
 console.log(
   "Static assets, section anchors, project rendering and legacy route checks passed.",

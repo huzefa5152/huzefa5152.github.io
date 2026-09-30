@@ -32,7 +32,9 @@
     />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="/assets/portfolio.css" />
+    <link rel="stylesheet" href="/assets/portfolio.css?v=motion-2" />
+    <link rel="stylesheet" href="/assets/lenis.css?v=motion-2" />
+    <link rel="stylesheet" href="/assets/motion.css?v=motion-2" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -70,6 +72,8 @@
     </header>
     <main id="main">
       <section class="hero section" id="home">
+        <canvas class="hero-mesh" aria-hidden="true"></canvas>
+        <div class="hero-glow" aria-hidden="true"></div>
         <div class="hero-top">
           <span class="eyebrow"
             ><i></i> SOFTWARE ENGINEER & CUSTOM SOFTWARE DEVELOPER</span
@@ -77,9 +81,19 @@
         </div>
         <div class="hero-grid">
           <div class="hero-copy">
-            <h1>
-              Turning<br />complexity<br />into <em>clarity.</em
-              ><span class="heading-period">●</span>
+            <div class="hero-name">
+              <span class="name-rule"></span> HUZEFA HUSSAIN
+            </div>
+            <h1 aria-label="Turning complexity into clarity.">
+              <span class="headline-line" aria-hidden="true"
+                ><span>Turning</span></span
+              >
+              <span class="headline-line" aria-hidden="true"
+                ><span>complexity</span></span
+              >
+              <span class="headline-line" aria-hidden="true"
+                ><span>into <em>clarity.</em></span></span
+              >
             </h1>
             <p>
               I’m Huzefa Hussain. I build thoughtful software that connects your
@@ -97,6 +111,7 @@
             class="portrait-scene"
             aria-label="Photograph of Huzefa Hussain with a layered depth treatment"
           >
+            <div class="portrait-orbit" aria-hidden="true"><span></span></div>
             <div class="portrait-grid" aria-hidden="true"></div>
             <span class="portrait-cross cross-one" aria-hidden="true">+</span
             ><span class="portrait-cross cross-two" aria-hidden="true">+</span>
@@ -124,7 +139,12 @@
               >
             </div>
             <div class="floating-label">
-              <span class="label-dot"></span> Built around real people.
+              <span class="label-dot"></span> Ideas, engineered into reality.
+            </div>
+            <div class="portrait-code" aria-hidden="true">
+              <span>01 / ENGINEERING</span
+              ><strong>human first.<br />systems second.</strong
+              ><i>● LIVE IN THE DETAILS</i>
             </div>
             <span class="orbit-text mono" aria-hidden="true"
               >IDEA → SYSTEM → IMPACT</span
@@ -139,9 +159,11 @@
         </div>
       </section>
       <div class="capability-strip" aria-label="Specialties">
-        <span>CUSTOM SOFTWARE</span><i>✳</i><span>BUSINESS AUTOMATION</span
-        ><i>✳</i><span>CONNECTED SYSTEMS</span><i>✳</i
-        ><span>THOUGHTFUL ENGINEERING</span><i>✳</i>
+        <div class="capability-track">
+          <span>CUSTOM SOFTWARE</span><i>✳</i><span>BUSINESS AUTOMATION</span
+          ><i>✳</i><span>CONNECTED SYSTEMS</span><i>✳</i
+          ><span>THOUGHTFUL ENGINEERING</span><i>✳</i>
+        </div>
       </div>
       <section class="intro section reveal" id="about">
         <div class="section-label">
@@ -388,6 +410,10 @@
       ><a href="/developer/">Enter Developer Mode &lt;/&gt;</a
       ><a href="#home" aria-label="Back to top">↑</a>
     </footer>
-    <script src="/assets/portfolio.js" defer></script>
+    <button class="motion-control" type="button" aria-pressed="false" hidden>
+      <span class="motion-icon" aria-hidden="true">◉</span
+      ><span class="motion-label">Motion</span>
+    </button>
+    <script type="module" src="/assets/motion.js?v=motion-2"></script>
   </body>
 </html>
