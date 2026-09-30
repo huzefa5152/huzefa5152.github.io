@@ -1,0 +1,29 @@
+[
+  {
+    "id":"myapp","number":"01","category":"Business systems / Full stack","name":"MyApp ERP","headline":"From purchase order to paid invoice.",
+    "summary":"A connected workspace for trading and distribution businesses. Purchase orders, delivery challans, invoices and receipts belong to one workflow, rather than separate spreadsheets.",
+    "capabilities":["Purchase order import and delivery challans","Multi-company invoicing and print templates","Payments, permissions and FBR API integration"],
+    "decision":"Company access and payment visibility are checked in the API. Document import and configurable print templates connect operational work with the documents businesses actually need.",
+    "tech":["C# / .NET 9","React 19","SQL Server","Entity Framework"],
+    "repo":"https://github.com/huzefa5152/MyApp.Api","demo":null,"preview":"workflow","caption":"Illustrative workflow · based on repository functionality",
+    "role":"Personal full-stack application · API and business workflows"
+  },
+  {
+    "id":"pos","number":"02","category":"Retail / Digital invoicing","name":"Ledger POS","headline":"A checkout that connects to the back office.",
+    "summary":"A retail point-of-sale workspace with registered terminals, cashier shifts, barcode checkout, split payments and sales reporting. Built for the everyday flow of a multi-company retail business in Pakistan.",
+    "capabilities":["Barcode sales, promotions and returns","Cashier shifts and drawer reconciliation","Server-side FBR / PRAL submission handling"],
+    "decision":"Sales settlement and fiscal submission are separate concerns. The gateway client treats uncertain submissions carefully instead of blindly retrying a sale that may already have been accepted.",
+    "tech":["Next.js","TypeScript","Firebase","REST APIs"],
+    "repo":null,"demo":"https://fbr-digital-pos.vercel.app/login","preview":"pos","caption":"Actual application capture · browser demo with fictional PrimeMart data",
+    "role":"Personal full-stack application · retail and integration workflows"
+  },
+  {
+    "id":"invoices","number":"03","category":"Finance / Accounts receivable","name":"InvoicePro","headline":"Know what’s billed. Know what’s owed.",
+    "summary":"Multi-company invoice management and accounts receivable for service businesses. Create branded invoices, record partial payments and follow each client’s balance through a connected ledger.",
+    "capabilities":["Independent company invoice numbering","Partial payments and client ledgers","Custom print templates, PDF and Excel reports"],
+    "decision":"Payment state is derived from payment records. Server-side ledger reconciliation connects invoice debits and payment credits to a running balance, keeping financial logic outside the browser.",
+    "tech":["Next.js 15","React 19","Firebase","TypeScript"],
+    "repo":null,"demo":"https://invoice-management-system-ashen.vercel.app","preview":"invoice","caption":"Illustrative invoice · fictional business and amounts",
+    "role":"Personal full-stack application · billing and ledger workflows"
+  }
+]

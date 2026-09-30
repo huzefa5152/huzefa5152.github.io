@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://huzefa5152.github.io/sitemap.xml

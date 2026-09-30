@@ -351,8 +351,8 @@ const COMMANDS = {
     execute: () => {
       return `<span class="section-header">Downloads</span>
 
-  <span class="label">Resume:</span>       <a href="resume/index.html" target="_blank">View Resume</a>  <span class="muted">(open in browser → Print to PDF)</span>
-  <span class="label">Cover Letter:</span>  <a href="cover-letter/index.html" target="_blank">View Cover Letter</a>  <span class="muted">(open in browser → Print to PDF)</span>
+  <span class="label">Resume:</span>       <a href="/resume/index.html" target="_blank">View Resume</a>  <span class="muted">(open in browser → Print to PDF)</span>
+  <span class="label">Cover Letter:</span>  <a href="/cover-letter/index.html" target="_blank">View Cover Letter</a>  <span class="muted">(open in browser → Print to PDF)</span>
 
   <span class="muted">Tip: Open the link, then press Ctrl+P (or Cmd+P) to save as PDF</span>
   <span class="muted">Or run specific commands: about, skills, experience, education, projects</span>`;
