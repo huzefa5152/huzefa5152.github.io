@@ -1,0 +1,32 @@
+[
+  {
+    "name": "FBR Digital Invoicing",
+    "category": "DIGITAL INVOICING / ERP",
+    "description": "My digital invoicing and custom business software showcase, with a separate ERP client portal.",
+    "url": "https://fbrdigitalinvoicesoftware.runasp.net/",
+    "label": "Explore the showcase",
+    "portal": "https://fbrdigitalinvoicesoftware.runasp.net/admin/login"
+  },
+  {
+    "name": "Trader FBR Invoicing",
+    "category": "TRADING / BUSINESS SOFTWARE",
+    "description": "The trader invoicing deployment, with a public software showcase and a dedicated ERP sign-in.",
+    "url": "https://tradersfbrinvoicing.runasp.net/",
+    "label": "Explore the showcase",
+    "portal": "https://tradersfbrinvoicing.runasp.net/admin/login"
+  },
+  {
+    "name": "InvoicePro",
+    "category": "BILLING / ACCOUNTS RECEIVABLE",
+    "description": "Open the invoice management application. Company invoices, payments and client ledgers are available after sign-in.",
+    "url": "https://invoice-management-system-ashen.vercel.app/login",
+    "label": "Open InvoicePro"
+  },
+  {
+    "name": "Ledger POS",
+    "category": "RETAIL / DIGITAL INVOICING",
+    "description": "Open the POS application, or explore its browser-only demo workspace with fictional retail data.",
+    "url": "https://fbr-digital-pos.vercel.app/login",
+    "label": "Open Ledger POS"
+  }
+]

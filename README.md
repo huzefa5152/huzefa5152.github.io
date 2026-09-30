@@ -6,6 +6,7 @@ Static HTML, CSS and JavaScript, published by the existing GitHub Pages deployme
 
 - Profile, services and section copy: `src/index.html`.
 - Project content: `content/projects.json`.
+- Public showcases and application entry points: `content/live-systems.json`.
 - Base styling: `assets/portfolio.css`. Motion edition: `assets/motion.css`, `assets/motion.js`.
 - Run `npm ci` before the first build. The pinned Lenis module, CSS and MIT license are copied into `assets/` by the build; no remote script CDN is used.
 - Run `npm run build` to regenerate root `index.html` and the standalone production output in `dist/`.

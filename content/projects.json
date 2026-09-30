@@ -14,7 +14,8 @@
     "decision": "Company access and payment visibility are checked in the API. Document import and configurable print templates connect operational work with the documents businesses actually need.",
     "tech": ["C# / .NET 9", "React 19", "SQL Server", "Entity Framework"],
     "repo": "https://github.com/huzefa5152/MyApp.Api",
-    "demo": null,
+    "demo": "https://fbrdigitalinvoicesoftware.runasp.net/",
+    "demoLabel": "View live showcase",
     "preview": "workflow",
     "caption": "Illustrative workflow · based on repository functionality",
     "role": "Personal full-stack application · API and business workflows"
@@ -54,7 +55,7 @@
     "decision": "Payment state is derived from payment records. Server-side ledger reconciliation connects invoice debits and payment credits to a running balance, keeping financial logic outside the browser.",
     "tech": ["Next.js 15", "React 19", "Firebase", "TypeScript"],
     "repo": null,
-    "demo": "https://invoice-management-system-ashen.vercel.app",
+    "demo": "https://invoice-management-system-ashen.vercel.app/login",
     "preview": "invoice",
     "caption": "Illustrative invoice · fictional business and amounts",
     "role": "Personal full-stack application · billing and ledger workflows"

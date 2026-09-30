@@ -2,6 +2,15 @@ import { readFile, access } from "node:fs/promises";
 import assert from "node:assert/strict";
 const html = await readFile("dist/index.html", "utf8");
 assert(!html.includes("<!-- PROJECTS -->"));
+assert(!html.includes("<!-- LIVE SYSTEMS -->"));
+const liveSystems = JSON.parse(
+  await readFile("content/live-systems.json", "utf8"),
+);
+for (const system of liveSystems)
+  assert(
+    html.includes(`href="${system.url}"`),
+    `Missing live link: ${system.name}`,
+  );
 for (const id of [
   "work",
   "about",

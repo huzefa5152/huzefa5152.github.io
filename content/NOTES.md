@@ -8,9 +8,9 @@ Personal email, LinkedIn, Karachi location and the enterprise development backgr
 
 ## Selected work
 
-- **MyApp ERP:** public [repository](https://github.com/huzefa5152/MyApp.Api), README, `MyApp.Api.csproj`, `Controllers/InvoicesController.cs`, and repository structure. Confirmed .NET 9, EF Core, SQL Server, React, purchase order import, delivery challans, invoicing, payments, templates and permission checks. Repository author history supports the personal project attribution. No public demo is advertised because a useful public demo URL was not established.
+- **MyApp ERP:** public [repository](https://github.com/huzefa5152/MyApp.Api), README, `MyApp.Api.csproj`, `Controllers/InvoicesController.cs`, and repository structure. Confirmed .NET 9, EF Core, SQL Server, React, purchase order import, delivery challans, invoicing, payments, templates and permission checks. Repository author history supports the personal project attribution. The user subsequently supplied the live digital invoicing and trader software showcase URLs. These public landing pages link to their ERP sign-in at `/admin/login`; the portfolio distinguishes public showcases from client workspaces.
 - **Ledger POS:** authorized private README, FBR gateway client and invoice mapper, plus the accessible [sign-in / demo entry](https://fbr-digital-pos.vercel.app/login). The browser-only demo explicitly identifies its data as fictional and makes no real fiscal submissions. Its actual dashboard was captured for the case study. Gateway integration is described as implementation capability, without certification or regulatory compliance claims.
-- **InvoicePro:** authorized private README, package manifest and server ledger service. Confirmed multi-company billing, payment state, ledger reconciliation, print templates and exports. The [application](https://invoice-management-system-ashen.vercel.app) opens sign-in; no authenticated customer screens or data were captured or published.
+- **InvoicePro:** authorized private README, package manifest and server ledger service. Confirmed multi-company billing, payment state, ledger reconciliation, print templates and exports. The [application](https://invoice-management-system-ashen.vercel.app/login) opens sign-in; no authenticated customer screens or data were captured or published.
 
 ## Visual direction
 

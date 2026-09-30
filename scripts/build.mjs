@@ -1,5 +1,8 @@
 import { readFile, writeFile, mkdir, cp } from "node:fs/promises";
 const projects = JSON.parse(await readFile("content/projects.json", "utf8"));
+const liveSystems = JSON.parse(
+  await readFile("content/live-systems.json", "utf8"),
+);
 await cp("node_modules/lenis/dist/lenis.mjs", "assets/lenis.js");
 await cp("node_modules/lenis/dist/lenis.css", "assets/lenis.css");
 await cp("node_modules/lenis/LICENSE", "assets/lenis-LICENSE.txt");
@@ -17,11 +20,29 @@ const previews = {
 const cards = projects
   .map(
     (p) =>
-      `<article class="project reveal" id="${esc(p.id)}"><div class="project-heading"><span class="mono">${p.number} / ${esc(p.category)}</span><h3>${esc(p.name)}</h3></div><figure class="project-preview">${previews[p.preview]}<figcaption>${esc(p.caption)}</figcaption></figure><div class="project-copy"><div><h4>${esc(p.headline)}</h4><p>${esc(p.summary)}</p><p class="project-role">${esc(p.role)}</p><div class="tags">${p.tech.map((t) => `<span>${esc(t)}</span>`).join("")}</div></div><div><ul>${p.capabilities.map((c) => `<li>${esc(c)}</li>`).join("")}</ul><details><summary>Inside the engineering <span>+</span></summary><p>${esc(p.decision)}</p></details><div class="project-links">${p.repo ? `<a href="${p.repo}" target="_blank" rel="noopener noreferrer">View repository ↗</a>` : '<span class="private-note">Private repository</span>'}${p.demo ? `<a href="${p.demo}" target="_blank" rel="noopener noreferrer">Visit application ↗</a>` : ""}</div></div></div></article>`,
+      `<article class="project reveal" id="${esc(p.id)}"><div class="project-heading"><span class="mono">${p.number} / ${esc(p.category)}</span><h3>${esc(p.name)}</h3></div><figure class="project-preview">${previews[p.preview]}<figcaption>${esc(p.caption)}</figcaption></figure><div class="project-copy"><div><h4>${esc(p.headline)}</h4><p>${esc(p.summary)}</p><p class="project-role">${esc(p.role)}</p><div class="tags">${p.tech.map((t) => `<span>${esc(t)}</span>`).join("")}</div></div><div><ul>${p.capabilities.map((c) => `<li>${esc(c)}</li>`).join("")}</ul><details><summary>Inside the engineering <span>+</span></summary><p>${esc(p.decision)}</p></details><div class="project-links">${p.repo ? `<a href="${p.repo}" target="_blank" rel="noopener noreferrer">View repository ↗</a>` : '<span class="private-note">Private repository</span>'}${p.demo ? `<a href="${p.demo}" target="_blank" rel="noopener noreferrer">${esc(p.demoLabel || "Visit application")} ↗</a>` : ""}</div></div></div></article>`,
   )
   .join("");
 let html = await readFile("src/index.html", "utf8");
 html = html.replace("<!-- PROJECTS -->", cards);
+html = html.replace(
+  "<!-- LIVE SYSTEMS -->",
+  liveSystems
+    .map(
+      (system, index) => `
+  <article class="live-system reveal">
+    <span class="mono">0${index + 1} / ${esc(system.category)}</span>
+    <h3>${esc(system.name)}</h3>
+    <p>${esc(system.description)}</p>
+    <div class="live-system-links">
+      <a href="${esc(system.url)}" target="_blank" rel="noopener noreferrer">${esc(system.label)} ↗</a>
+      ${system.portal ? `<a href="${esc(system.portal)}" target="_blank" rel="noopener noreferrer">Client sign-in ↗</a>` : ""}
+    </div>
+  </article>`,
+    )
+    .join(""),
+);
+html = html.replace(/^[ \t]+$/gm, "");
 await writeFile("index.html", html);
 await mkdir("dist", { recursive: true });
 for (const path of [
